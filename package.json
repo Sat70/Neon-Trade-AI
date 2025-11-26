@@ -1,0 +1,21 @@
+{
+  "name": "major-project",
+  "version": "1.0.0",
+  "private": true,
+  "description": "NeonTrade AI stock prediction platform scaffold",
+  "scripts": {
+    "dev": "concurrently \"npm --prefix server run dev\" \"npm --prefix client run dev\"",
+    "client": "npm --prefix client run dev",
+    "server": "npm --prefix server run dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.0.2"
+  }
+}
