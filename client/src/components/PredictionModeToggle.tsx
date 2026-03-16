@@ -1,20 +1,20 @@
-export type PredictionMode = 'Intraday' | 'Swing' | 'Long Term'
+export type PredictionMode = 'Intraday' | 'Short Term' | 'Long Term'
 
 type PredictionModeToggleProps = {
   value: PredictionMode
   onChange: (mode: PredictionMode) => void
 }
 
-const options: PredictionMode[] = ['Intraday', 'Swing', 'Long Term']
+const options: PredictionMode[] = ['Intraday', 'Short Term', 'Long Term']
 
 const PredictionModeToggle = ({ value, onChange }: PredictionModeToggleProps) => {
   return (
-    <div className="w-full rounded-2xl border border-white/10 bg-black/30 p-4 shadow-inner shadow-black/30">
+    <div className="w-full p-4 border shadow-inner rounded-2xl border-white/10 bg-black/30 shadow-black/30">
       <div className="flex items-center justify-between text-sm text-slate-300">
         <p>Prediction Mode</p>
-        <p className="text-xs uppercase tracking-wide text-teal-200">{value}</p>
+        <p className="text-xs tracking-wide text-teal-200 uppercase">{value}</p>
       </div>
-      <div className="mt-4 grid grid-cols-3 gap-2">
+      <div className="grid grid-cols-3 gap-2 mt-4">
         {options.map((option) => {
           const isActive = option === value
           return (
@@ -37,4 +37,6 @@ const PredictionModeToggle = ({ value, onChange }: PredictionModeToggleProps) =>
 }
 
 export default PredictionModeToggle
+
+
 

@@ -4,6 +4,7 @@ exports.User = void 0;
 const mongoose_1 = require("mongoose");
 const userSchema = new mongoose_1.Schema({
     name: { type: String, required: true, trim: true },
+    age: { type: Number, required: true, min: 18 },
     email: { type: String, required: true, unique: true, lowercase: true, trim: true },
     password: { type: String, required: true },
     createdAt: { type: Date, default: Date.now },

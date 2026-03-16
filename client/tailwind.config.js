@@ -9,6 +9,15 @@ export default {
           mint: '#2dd4bf',
         },
       },
+      animation: {
+        'skeleton-shimmer': 'skeleton-shimmer 1.8s ease-in-out infinite',
+      },
+      keyframes: {
+        'skeleton-shimmer': {
+          '0%': { backgroundPosition: '-200% 0' },
+          '100%': { backgroundPosition: '200% 0' },
+        },
+      },
     },
   },
   plugins: [],

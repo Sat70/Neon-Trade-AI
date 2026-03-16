@@ -19,13 +19,12 @@ const pathData = graphPoints.reduce((acc, point, index) => {
 
 const BackgroundGraph = () => {
   return (
-    // Full-screen holographic graph layer; stretches with the hero container.
-    <div className="pointer-events-none absolute inset-0 -z-10 h-full w-full overflow-hidden">
+    <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none -z-10">
       <motion.svg
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 0.4, y: 0 }}
         transition={{ duration: 1.2, ease: 'easeOut' }}
-        className="h-full w-full"
+        className="w-full h-full"
         viewBox="0 0 640 200"
         preserveAspectRatio="none"
       >

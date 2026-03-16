@@ -1,10 +1,12 @@
-import { Request, Response, NextFunction } from 'express';
-export interface AuthenticatedRequest extends Request {
-    user?: {
-        id: string;
-        email: string;
-        name: string;
-    };
+import type { Request, Response, NextFunction } from 'express';
+export interface AuthPayload {
+    id: string;
+    email: string;
+    name: string;
+    age: number;
 }
-export declare const requireAuth: (req: AuthenticatedRequest, res: Response, next: NextFunction) => void | Response<any, Record<string, any>>;
+export interface AuthenticatedRequest extends Request {
+    user?: AuthPayload;
+}
+export declare function requireAuth(req: AuthenticatedRequest, res: Response, next: NextFunction): void;
 //# sourceMappingURL=requireAuth.d.ts.map

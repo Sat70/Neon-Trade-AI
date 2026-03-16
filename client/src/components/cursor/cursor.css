@@ -1,0 +1,85 @@
+/* Custom cursor – neon teal theme, GPU-friendly transforms */
+
+.cursor-wrapper {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+}
+
+.cursor-dot {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(45, 212, 191, 0.95);
+  box-shadow: 0 0 12px rgba(45, 212, 191, 0.6), 0 0 24px rgba(45, 212, 191, 0.3);
+  transform: translate(-50%, -50%);
+  will-change: transform;
+  transition: transform 0.12s ease-out, box-shadow 0.2s ease, width 0.2s ease, height 0.2s ease;
+}
+
+.cursor-dot.hover {
+  width: 12px;
+  height: 12px;
+  box-shadow: 0 0 16px rgba(45, 212, 191, 0.8), 0 0 32px rgba(45, 212, 191, 0.4);
+}
+
+.cursor-dot.click {
+  transform: translate(-50%, -50%) scale(0.85);
+  box-shadow: 0 0 8px rgba(45, 212, 191, 0.8);
+}
+
+.cursor-ring {
+  position: fixed;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(45, 212, 191, 0.4);
+  box-shadow: 0 0 20px rgba(45, 212, 191, 0.15), inset 0 0 20px rgba(45, 212, 191, 0.05);
+  transform: translate(-50%, -50%);
+  will-change: transform;
+  transition: width 0.25s ease, height 0.25s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cursor-ring.hover {
+  width: 48px;
+  height: 48px;
+  border-color: rgba(45, 212, 191, 0.5);
+  box-shadow: 0 0 28px rgba(45, 212, 191, 0.25), inset 0 0 24px rgba(45, 212, 191, 0.08);
+}
+
+/* Subtle pulse for ring */
+@keyframes cursor-ring-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.85; }
+}
+
+.cursor-ring.pulse {
+  animation: cursor-ring-pulse 2.5s ease-in-out infinite;
+}
+
+/* Reduced motion: no animations, instant follow */
+@media (prefers-reduced-motion: reduce) {
+  .cursor-dot,
+  .cursor-ring {
+    transition: none;
+  }
+  .cursor-ring.pulse {
+    animation: none;
+  }
+}
+
+/* Body hide default cursor when custom cursor is active */
+body.cursor-custom {
+  cursor: none;
+}
+
+body.cursor-custom input,
+body.cursor-custom textarea,
+body.cursor-custom [contenteditable='true'] {
+  cursor: text;
+}

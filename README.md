@@ -5,7 +5,7 @@ Full-stack starter kit for a market-intel dashboard featuring a React + Vite fro
 ## Tech Stack
 - React 19 with Vite + TypeScript (`/client`)
 - Tailwind CSS 3 configured with PostCSS
-- Node.js 18+ / Express 5, Prisma + Neon PostgreSQL for auth, Mongoose for other models (`/server`)
+- Node.js 18+ / Express 5, Mongoose + local MongoDB for auth (`/server`)
 - npm for dependency management
 
 ## Project Structure
@@ -43,23 +43,73 @@ npm run dev               # starts client (Vite) + server (nodemon) concurrently
 - `npm --prefix client run build` – Production build for the frontend
 - `npm --prefix server run build` – TypeScript compile to `server/dist`
 
+## Local MongoDB
+
+Auth and data use **local MongoDB**. Start MongoDB before running the server.
+
+**macOS / Linux:**
+```bash
+mongod
+```
+With Homebrew (macOS):
+```bash
+brew services start mongodb-community
+```
+
+**Windows:** run `mongod` from your MongoDB install.
+
+**Verify:** open a new terminal and run `mongosh` (or `mongo`), then:
+```bash
+use neontrade
+show collections
+```
+You should see `users` after the first signup (or demo user seed).
+
+**Test connection from project:**
+```bash
+cd server
+npm run test:db
+```
+Expected: `MongoDB local connection OK ✅`
+
+**Environment:** In `server/.env` use:
+```env
+MONGODB_URI="mongodb://127.0.0.1:27017/neontrade"
+```
+Use `127.0.0.1` instead of `localhost` if you have connection issues.
+
 ## Environment variables
-- `PORT` (default `5000`)
+- `MONGODB_URI` – MongoDB connection string (e.g. `mongodb://127.0.0.1:27017/neontrade` for local)
+- `JWT_SECRET` – required for signing login/register tokens
+- `PORT` (default `3000`)
 - `CLIENT_ORIGIN` (default `http://localhost:5173` for CORS)
-- `MONGODB_URI` (Mongo connection string; optional – used for non-auth Mongo features)
-- `JWT_SECRET` (required for signing login/register tokens)
-- `DATABASE_URL` (Neon PostgreSQL connection string used by Prisma)
 
-## Auth Flow Overview
-- **Server**: `/api/auth/register` and `/api/auth/login` hash passwords with `bcryptjs`, store users in Neon PostgreSQL via Prisma, and return JWTs signed with `JWT_SECRET`. `requireAuth` middleware validates `Authorization: Bearer <token>` for future protected routes.
-- **Client**: `LoginPage` and `RegisterPage` call the endpoints, persist the token/user profile in `localStorage`, and hydrate the global `AuthContext`.
-- **UI Guards**: Navbar switches between Login/Register buttons and user avatar + Logout. Hero metrics and signal console stay hidden until `isAuthenticated` is true, showing CTA links otherwise.
+## Authentication (Local MongoDB + Mongoose)
 
-## Neon / Prisma Notes
-- Prisma schema for Neon lives in `server/prisma/schema.prisma` with a `User` model matching auth fields.
-- Set `DATABASE_URL` in `server/.env` using the Neon dashboard connection string, for example:
-  - `postgresql://<USER>:<PASSWORD>@<HOST>/<DB_NAME>?sslmode=require`
-- After updating the schema, run `npx prisma migrate dev --name <migration_name>` from the `server` folder to sync the Neon database.
+### APIs
+- **POST /api/auth/signup** – Register: `name`, `age` (≥18), `email`, `password`. Validates age and email; hashes password with bcrypt (12 rounds); stores in MongoDB `users` collection; sets HTTP-only cookie and returns JWT + user.
+- **POST /api/auth/login** – Login: `email`, `password`. Verifies with bcrypt; sets HTTP-only cookie and returns JWT + user.
+- **GET /api/auth/me** – Protected: returns current user (JWT from cookie or `Authorization: Bearer`).
+- **POST /api/auth/logout** – Clears auth cookie.
+
+### Security
+- Passwords hashed with bcrypt (12 salt rounds); never exposed.
+- JWT stored in HTTP-only cookie (and optionally returned in body for clients that need it).
+- Rate limiting on auth routes (20 requests per 15 minutes).
+- Age validated on frontend and backend (≥18).
+- Email format validated; duplicate email rejected on signup.
+- Mongoose used for all DB access (ODM, no raw SQL).
+
+### Frontend
+- **Sign up** (`/signup`) and **Log in** (`/login`) forms with validation errors.
+- On success, redirect to **Dashboard** (`/dashboard`). Auth state in React Context; session restored via `GET /api/auth/me` (cookie sent with `credentials: 'include'`).
+- Navbar shows Sign up / Log in when guest, user name + Log out when authenticated.
+- Protected routes (e.g. `/dashboard`) redirect to `/login` if not authenticated.
+
+### DB connection
+- Connection: `server/src/config/db.ts`. Server calls `connectDB()` before listening; DB must be reachable at startup.
+- User model: `server/src/models/User.ts` (Mongoose schema: `name`, `age`, `email`, `password`, `createdAt`).
+- If connection fails: ensure MongoDB is running (`mongod`), port 27017 is free, and `MONGODB_URI` in `.env` uses `127.0.0.1`.
 
 ## Next Steps
 - Wire `/api/predictions` routes to actual Mongo or Neon-backed collections & guard with `requireAuth`

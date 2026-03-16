@@ -1,75 +1,103 @@
-import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from 'react'
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+  type ReactNode,
+} from 'react'
+import { API_BASE_URL } from '../lib/constants'
 
-type AuthUser = {
+export type AuthUser = {
   id: string
   name: string
+  age: number
   email: string
+  createdAt: string
 }
 
 type AuthContextValue = {
   user: AuthUser | null
-  token: string | null
+  loading: boolean
   isAuthenticated: boolean
-  login: (user: AuthUser, token: string) => void
-  logout: () => void
+  login: (user: AuthUser) => void
+  signup: (user: AuthUser) => void
+  logout: () => Promise<void>
+  setUser: (user: AuthUser | null) => void
 }
-
-const TOKEN_KEY = 'neontrade_token'
-const USER_KEY = 'neontrade_user'
 
 const AuthContext = createContext<AuthContextValue | undefined>(undefined)
 
-export const AuthProvider = ({ children }: { children: ReactNode }) => {
+const fetchOptions: RequestInit = {
+  credentials: 'include',
+  headers: { 'Content-Type': 'application/json' },
+}
+
+export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<AuthUser | null>(null)
-  const [token, setToken] = useState<string | null>(null)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const storedToken = localStorage.getItem(TOKEN_KEY)
-    const storedUser = localStorage.getItem(USER_KEY)
-    if (storedToken && storedUser) {
+    let cancelled = false
+    async function loadUser() {
       try {
-        setToken(storedToken)
-        setUser(JSON.parse(storedUser) as AuthUser)
+        const res = await fetch(`${API_BASE_URL}/api/auth/me`, {
+          ...fetchOptions,
+          method: 'GET',
+        })
+        if (cancelled) return
+        if (res.ok) {
+          const data = await res.json()
+          setUser(data.user ?? null)
+        } else {
+          setUser(null)
+        }
       } catch {
-        localStorage.removeItem(TOKEN_KEY)
-        localStorage.removeItem(USER_KEY)
+        if (!cancelled) setUser(null)
+      } finally {
+        if (!cancelled) setLoading(false)
       }
+    }
+    loadUser()
+    return () => {
+      cancelled = true
     }
   }, [])
 
-  const login = (authUser: AuthUser, authToken: string) => {
-    setUser(authUser)
-    setToken(authToken)
-    localStorage.setItem(TOKEN_KEY, authToken)
-    localStorage.setItem(USER_KEY, JSON.stringify(authUser))
-  }
+  const login = (u: AuthUser) => setUser(u)
+  const signup = (u: AuthUser) => setUser(u)
 
-  const logout = () => {
-    setUser(null)
-    setToken(null)
-    localStorage.removeItem(TOKEN_KEY)
-    localStorage.removeItem(USER_KEY)
+  const logout = async () => {
+    try {
+      await fetch(`${API_BASE_URL}/api/auth/logout`, {
+        ...fetchOptions,
+        method: 'POST',
+      })
+    } finally {
+      setUser(null)
+    }
   }
 
   const value = useMemo<AuthContextValue>(
     () => ({
       user,
-      token,
-      isAuthenticated: Boolean(user && token),
+      loading,
+      isAuthenticated: Boolean(user),
       login,
+      signup,
       logout,
+      setUser,
     }),
-    [user, token]
+    [user, loading]
   )
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }
 
-export const useAuth = () => {
+export function useAuth() {
   const ctx = useContext(AuthContext)
-  if (!ctx) {
+  if (ctx === undefined) {
     throw new Error('useAuth must be used within AuthProvider')
   }
   return ctx
 }
-
