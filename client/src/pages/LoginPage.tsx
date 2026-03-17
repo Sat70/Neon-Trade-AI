@@ -3,41 +3,51 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import { API_BASE_URL } from '../lib/constants'
 
-const LoginPage = () => {
+export default function LoginPage() {
   const navigate = useNavigate()
   const { login } = useAuth()
   const [form, setForm] = useState({ email: '', password: '' })
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
 
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
     setError(null)
     setLoading(true)
     try {
-      const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
+      const res = await fetch(`${API_BASE_URL}/api/auth/login`, {
         method: 'POST',
+        credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          email: form.email.trim().toLowerCase(),
+          password: form.password,
+        }),
       })
-
-      if (!response.ok) {
-        const data = await response.json().catch(() => ({}))
-        throw new Error(data.message ?? 'Failed to login.')
+      const data = await res.json().catch(() => ({}))
+      if (!res.ok) {
+        const message = typeof data?.message === 'string' ? data.message : 'Login failed'
+        setError(message)
+        return
       }
-
-      const data = await response.json()
-      login(data.user, data.token)
-      navigate('/')
+      if (!data?.user) {
+        setError('Invalid response from server')
+        return
+      }
+      login(data.user)
+      navigate('/dashboard', { replace: true })
     } catch (err) {
-      setError((err as Error).message)
+      const isNetworkError = err instanceof TypeError && (err.message === 'Failed to fetch' || err.message.includes('NetworkError'))
+      setError(
+        isNetworkError
+          ? `Cannot connect to server. Make sure the API is running at ${API_BASE_URL}`
+          : 'Login failed'
+      )
     } finally {
       setLoading(false)
     }
   }
 
-  // NOTE: This page previously centered the canvas in a smaller box.
-  // Now the background is full-screen and the glass card floats within it.
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-[#020617] via-[#0f172a] to-[#1e293b] text-white">
       <div className="pointer-events-none absolute inset-0 -z-10">
@@ -49,7 +59,7 @@ const LoginPage = () => {
         <div className="w-full max-w-md rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-2xl shadow-teal-500/20 backdrop-blur-2xl">
           <p className="text-xs uppercase tracking-[0.4em] text-teal-200">NeonTrade AI</p>
           <h1 className="mt-3 text-3xl font-semibold">Welcome back</h1>
-          <p className="mt-2 text-sm text-slate-300">Log in to access AI predictions and live dashboards.</p>
+          <p className="mt-2 text-sm text-slate-300">Log in to access predictions and dashboard.</p>
 
           <form className="mt-8 space-y-5" onSubmit={handleSubmit}>
             <label className="block text-sm">
@@ -89,7 +99,7 @@ const LoginPage = () => {
 
           <p className="mt-6 text-center text-xs text-slate-400">
             New here?{' '}
-            <Link to="/auth/register" className="text-teal-200 underline-offset-4 hover:underline">
+            <Link to="/signup" className="text-teal-200 underline-offset-4 hover:underline">
               Create an account
             </Link>
           </p>
@@ -98,6 +108,3 @@ const LoginPage = () => {
     </div>
   )
 }
-
-export default LoginPage
-
