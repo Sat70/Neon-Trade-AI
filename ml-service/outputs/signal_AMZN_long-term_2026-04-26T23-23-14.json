@@ -1,0 +1,19 @@
+{
+  "ticker": "AMZN",
+  "horizon": "long-term",
+  "current_price": 263.99,
+  "signal": "Bearish",
+  "confidence": 96.25,
+  "expected_return": -5.37,
+  "recommendation_score": 0.0,
+  "risk_level": "High",
+  "rating": "C+",
+  "features": {
+    "volatility_range": 33.0699,
+    "trend_strength": -1.342109,
+    "consistency": 0.0
+  },
+  "risk_score": 0.724,
+  "drawdown_risk": 28.05,
+  "volatility": 0.6979
+}

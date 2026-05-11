@@ -1,0 +1,217 @@
+{
+  "ticker": "AAPL",
+  "horizon": "short-term",
+  "current_price": 271.06,
+  "predictions": [
+    {
+      "label": "D1",
+      "current": 271.06,
+      "predicted": 271.085,
+      "upper": 276.5694,
+      "lower": 265.6006
+    },
+    {
+      "label": "D2",
+      "current": 271.06,
+      "predicted": 271.0162,
+      "upper": 276.4992,
+      "lower": 265.5331
+    },
+    {
+      "label": "D3",
+      "current": 271.06,
+      "predicted": 270.969,
+      "upper": 276.4511,
+      "lower": 265.4869
+    },
+    {
+      "label": "D4",
+      "current": 271.06,
+      "predicted": 270.9193,
+      "upper": 276.4004,
+      "lower": 265.4382
+    },
+    {
+      "label": "D5",
+      "current": 271.06,
+      "predicted": 270.9282,
+      "upper": 276.4095,
+      "lower": 265.447
+    },
+    {
+      "label": "D6",
+      "current": 271.06,
+      "predicted": 270.9328,
+      "upper": 276.4142,
+      "lower": 265.4515
+    },
+    {
+      "label": "D7",
+      "current": 271.06,
+      "predicted": 270.9328,
+      "upper": 276.4142,
+      "lower": 265.4515
+    },
+    {
+      "label": "D8",
+      "current": 271.06,
+      "predicted": 270.9349,
+      "upper": 276.4163,
+      "lower": 265.4535
+    },
+    {
+      "label": "D9",
+      "current": 271.06,
+      "predicted": 270.9349,
+      "upper": 276.4163,
+      "lower": 265.4535
+    },
+    {
+      "label": "D10",
+      "current": 271.06,
+      "predicted": 270.9349,
+      "upper": 276.4163,
+      "lower": 265.4535
+    },
+    {
+      "label": "D11",
+      "current": 271.06,
+      "predicted": 270.9349,
+      "upper": 276.4163,
+      "lower": 265.4535
+    },
+    {
+      "label": "D12",
+      "current": 271.06,
+      "predicted": 270.934,
+      "upper": 276.4153,
+      "lower": 265.4526
+    },
+    {
+      "label": "D13",
+      "current": 271.06,
+      "predicted": 270.9328,
+      "upper": 276.4141,
+      "lower": 265.4514
+    },
+    {
+      "label": "D14",
+      "current": 271.06,
+      "predicted": 270.9328,
+      "upper": 276.4141,
+      "lower": 265.4514
+    },
+    {
+      "label": "D15",
+      "current": 271.06,
+      "predicted": 270.9328,
+      "upper": 276.4141,
+      "lower": 265.4514
+    },
+    {
+      "label": "D16",
+      "current": 271.06,
+      "predicted": 270.9395,
+      "upper": 276.421,
+      "lower": 265.458
+    },
+    {
+      "label": "D17",
+      "current": 271.06,
+      "predicted": 270.9351,
+      "upper": 276.4165,
+      "lower": 265.4537
+    },
+    {
+      "label": "D18",
+      "current": 271.06,
+      "predicted": 270.9348,
+      "upper": 276.4162,
+      "lower": 265.4534
+    },
+    {
+      "label": "D19",
+      "current": 271.06,
+      "predicted": 270.9348,
+      "upper": 276.4162,
+      "lower": 265.4534
+    },
+    {
+      "label": "D20",
+      "current": 271.06,
+      "predicted": 270.9348,
+      "upper": 276.4162,
+      "lower": 265.4534
+    },
+    {
+      "label": "D21",
+      "current": 271.06,
+      "predicted": 270.9348,
+      "upper": 276.4162,
+      "lower": 265.4534
+    },
+    {
+      "label": "D22",
+      "current": 271.06,
+      "predicted": 270.9348,
+      "upper": 276.4162,
+      "lower": 265.4534
+    },
+    {
+      "label": "D23",
+      "current": 271.06,
+      "predicted": 270.9348,
+      "upper": 276.4162,
+      "lower": 265.4534
+    },
+    {
+      "label": "D24",
+      "current": 271.06,
+      "predicted": 270.9323,
+      "upper": 276.4136,
+      "lower": 265.4509
+    },
+    {
+      "label": "D25",
+      "current": 271.06,
+      "predicted": 270.9323,
+      "upper": 276.4136,
+      "lower": 265.4509
+    },
+    {
+      "label": "D26",
+      "current": 271.06,
+      "predicted": 270.935,
+      "upper": 276.4164,
+      "lower": 265.4536
+    },
+    {
+      "label": "D27",
+      "current": 271.06,
+      "predicted": 270.935,
+      "upper": 276.4164,
+      "lower": 265.4536
+    },
+    {
+      "label": "D28",
+      "current": 271.06,
+      "predicted": 270.935,
+      "upper": 276.4164,
+      "lower": 265.4536
+    },
+    {
+      "label": "D29",
+      "current": 271.06,
+      "predicted": 270.935,
+      "upper": 276.4164,
+      "lower": 265.4536
+    },
+    {
+      "label": "D30",
+      "current": 271.06,
+      "predicted": 270.935,
+      "upper": 276.4164,
+      "lower": 265.4536
+    }
+  ]
+}

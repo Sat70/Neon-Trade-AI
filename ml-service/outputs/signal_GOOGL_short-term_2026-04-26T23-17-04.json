@@ -1,0 +1,19 @@
+{
+  "ticker": "GOOGL",
+  "horizon": "short-term",
+  "current_price": 344.4,
+  "signal": "Neutral",
+  "confidence": 94.58,
+  "expected_return": -1.53,
+  "recommendation_score": 0.0199,
+  "risk_level": "Medium",
+  "rating": "C+",
+  "features": {
+    "volatility_range": 18.2687,
+    "trend_strength": -0.11724,
+    "consistency": 0.1379
+  },
+  "risk_score": 0.4556,
+  "drawdown_risk": 20.37,
+  "volatility": 0.2454
+}

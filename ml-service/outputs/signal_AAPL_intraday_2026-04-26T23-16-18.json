@@ -1,0 +1,19 @@
+{
+  "ticker": "AAPL",
+  "horizon": "intraday",
+  "current_price": 271.06,
+  "signal": "Neutral",
+  "confidence": 95.83,
+  "expected_return": -0.04,
+  "recommendation_score": 0.1193,
+  "risk_level": "Low",
+  "rating": "C+",
+  "features": {
+    "volatility_range": 1.0806,
+    "trend_strength": -0.012692,
+    "consistency": 0.0
+  },
+  "risk_score": 0.1651,
+  "drawdown_risk": 3.18,
+  "volatility": 0.008
+}

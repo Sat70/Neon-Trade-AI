@@ -1,0 +1,19 @@
+{
+  "ticker": "NVDA",
+  "horizon": "intraday",
+  "current_price": 208.19,
+  "signal": "Neutral",
+  "confidence": 97.92,
+  "expected_return": -0.03,
+  "recommendation_score": 0.2004,
+  "risk_level": "Low",
+  "rating": "C+",
+  "features": {
+    "volatility_range": 1.1688,
+    "trend_strength": -0.005507,
+    "consistency": 0.2857
+  },
+  "risk_score": 0.1652,
+  "drawdown_risk": 2.85,
+  "volatility": 0.016
+}

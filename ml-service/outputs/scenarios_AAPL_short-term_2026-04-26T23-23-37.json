@@ -1,0 +1,25 @@
+{
+  "ticker": "AAPL",
+  "horizon": "short-term",
+  "simulations": 800,
+  "scenarios": [
+    {
+      "name": "Bull Case",
+      "expectedReturn": 53.33,
+      "probability": 20,
+      "risk": "Medium"
+    },
+    {
+      "name": "Base Case",
+      "expectedReturn": -0.46,
+      "probability": 60,
+      "risk": "Low"
+    },
+    {
+      "name": "Bear Case",
+      "expectedReturn": -31.37,
+      "probability": 20,
+      "risk": "High"
+    }
+  ]
+}

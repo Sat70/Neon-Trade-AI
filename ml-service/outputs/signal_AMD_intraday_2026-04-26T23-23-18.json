@@ -1,0 +1,19 @@
+{
+  "ticker": "AMD",
+  "horizon": "intraday",
+  "current_price": 347.76,
+  "signal": "Neutral",
+  "confidence": 99.17,
+  "expected_return": 0.04,
+  "recommendation_score": 0.2457,
+  "risk_level": "Low",
+  "rating": "C+",
+  "features": {
+    "volatility_range": 7.2134,
+    "trend_strength": 0.016735,
+    "consistency": 0.7143
+  },
+  "risk_score": 0.2486,
+  "drawdown_risk": 4.24,
+  "volatility": 0.0267
+}

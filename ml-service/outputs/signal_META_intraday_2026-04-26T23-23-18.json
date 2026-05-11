@@ -1,0 +1,19 @@
+{
+  "ticker": "META",
+  "horizon": "intraday",
+  "current_price": 674.89,
+  "signal": "Neutral",
+  "confidence": 98.75,
+  "expected_return": -0.0,
+  "recommendation_score": 0.1389,
+  "risk_level": "Low",
+  "rating": "C+",
+  "features": {
+    "volatility_range": 3.7017,
+    "trend_strength": 6.8e-05,
+    "consistency": 0.2857
+  },
+  "risk_score": 0.1899,
+  "drawdown_risk": 3.98,
+  "volatility": 0.0099
+}

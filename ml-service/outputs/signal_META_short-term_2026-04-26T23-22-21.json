@@ -1,0 +1,19 @@
+{
+  "ticker": "META",
+  "horizon": "short-term",
+  "current_price": 675.03,
+  "signal": "Neutral",
+  "confidence": 98.33,
+  "expected_return": 0.93,
+  "recommendation_score": 0.1498,
+  "risk_level": "Medium",
+  "rating": "C+",
+  "features": {
+    "volatility_range": 50.667,
+    "trend_strength": 0.142532,
+    "consistency": 0.4138
+  },
+  "risk_score": 0.59,
+  "drawdown_risk": 29.94,
+  "volatility": 0.3349
+}

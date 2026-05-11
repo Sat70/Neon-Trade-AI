@@ -1,0 +1,19 @@
+{
+  "ticker": "SPY",
+  "horizon": "long-term",
+  "current_price": 713.94,
+  "signal": "Neutral",
+  "confidence": 95.83,
+  "expected_return": -1.15,
+  "recommendation_score": 0.0,
+  "risk_level": "Medium",
+  "rating": "C+",
+  "features": {
+    "volatility_range": 45.4349,
+    "trend_strength": -0.586457,
+    "consistency": 0.0
+  },
+  "risk_score": 0.4444,
+  "drawdown_risk": 16.88,
+  "volatility": 0.2384
+}

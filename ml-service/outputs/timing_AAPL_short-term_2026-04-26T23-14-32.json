@@ -1,0 +1,219 @@
+{
+  "ticker": "AAPL",
+  "horizon": "short-term",
+  "timing": [
+    {
+      "time": "D1",
+      "signal": "Sell",
+      "momentum": 0.334,
+      "confidence": 96.54,
+      "volume_spike": 0.276
+    },
+    {
+      "time": "D2",
+      "signal": "Sell",
+      "momentum": 0.343,
+      "confidence": 96.92,
+      "volume_spike": 0.23
+    },
+    {
+      "time": "D3",
+      "signal": "Sell",
+      "momentum": 0.356,
+      "confidence": 96.15,
+      "volume_spike": 0.257
+    },
+    {
+      "time": "D4",
+      "signal": "Sell",
+      "momentum": 0.249,
+      "confidence": 96.54,
+      "volume_spike": 0.309
+    },
+    {
+      "time": "D5",
+      "signal": "Sell",
+      "momentum": 0.347,
+      "confidence": 95.38,
+      "volume_spike": 0.303
+    },
+    {
+      "time": "D6",
+      "signal": "Neutral",
+      "momentum": 0.462,
+      "confidence": 94.62,
+      "volume_spike": 0.795
+    },
+    {
+      "time": "D7",
+      "signal": "Neutral",
+      "momentum": 0.483,
+      "confidence": 92.69,
+      "volume_spike": 0.266
+    },
+    {
+      "time": "D8",
+      "signal": "Neutral",
+      "momentum": 0.452,
+      "confidence": 96.92,
+      "volume_spike": 0.307
+    },
+    {
+      "time": "D9",
+      "signal": "Buy",
+      "momentum": 0.583,
+      "confidence": 98.85,
+      "volume_spike": 0.145
+    },
+    {
+      "time": "D10",
+      "signal": "Buy",
+      "momentum": 0.615,
+      "confidence": 99.23,
+      "volume_spike": 0.271
+    },
+    {
+      "time": "D11",
+      "signal": "Neutral",
+      "momentum": 0.537,
+      "confidence": 91.54,
+      "volume_spike": 0.312
+    },
+    {
+      "time": "D12",
+      "signal": "Sell",
+      "momentum": 0.392,
+      "confidence": 98.85,
+      "volume_spike": 0.227
+    },
+    {
+      "time": "D13",
+      "signal": "Buy",
+      "momentum": 0.573,
+      "confidence": 96.92,
+      "volume_spike": 0.306
+    },
+    {
+      "time": "D14",
+      "signal": "Buy",
+      "momentum": 0.594,
+      "confidence": 99.23,
+      "volume_spike": 0.271
+    },
+    {
+      "time": "D15",
+      "signal": "Buy",
+      "momentum": 0.594,
+      "confidence": 98.85,
+      "volume_spike": 0.189
+    },
+    {
+      "time": "D16",
+      "signal": "Buy",
+      "momentum": 0.77,
+      "confidence": 98.08,
+      "volume_spike": 0.184
+    },
+    {
+      "time": "D17",
+      "signal": "Buy",
+      "momentum": 0.694,
+      "confidence": 97.69,
+      "volume_spike": 0.487
+    },
+    {
+      "time": "D18",
+      "signal": "Buy",
+      "momentum": 0.645,
+      "confidence": 99.62,
+      "volume_spike": 0.272
+    },
+    {
+      "time": "D19",
+      "signal": "Buy",
+      "momentum": 0.638,
+      "confidence": 98.46,
+      "volume_spike": 0.157
+    },
+    {
+      "time": "D20",
+      "signal": "Buy",
+      "momentum": 0.63,
+      "confidence": 97.31,
+      "volume_spike": 0.2
+    },
+    {
+      "time": "D21",
+      "signal": "Neutral",
+      "momentum": 0.526,
+      "confidence": 96.92,
+      "volume_spike": 0.274
+    },
+    {
+      "time": "D22",
+      "signal": "Buy",
+      "momentum": 0.649,
+      "confidence": 98.46,
+      "volume_spike": 0.4
+    },
+    {
+      "time": "D23",
+      "signal": "Buy",
+      "momentum": 0.7,
+      "confidence": 97.69,
+      "volume_spike": 0.385
+    },
+    {
+      "time": "D24",
+      "signal": "Buy",
+      "momentum": 0.589,
+      "confidence": 98.85,
+      "volume_spike": 0.296
+    },
+    {
+      "time": "D25",
+      "signal": "Buy",
+      "momentum": 0.753,
+      "confidence": 97.31,
+      "volume_spike": 0.483
+    },
+    {
+      "time": "D26",
+      "signal": "Buy",
+      "momentum": 0.851,
+      "confidence": 97.69,
+      "volume_spike": 0.232
+    },
+    {
+      "time": "D27",
+      "signal": "Buy",
+      "momentum": 0.7,
+      "confidence": 98.08,
+      "volume_spike": 0.342
+    },
+    {
+      "time": "D28",
+      "signal": "Buy",
+      "momentum": 0.68,
+      "confidence": 98.08,
+      "volume_spike": 0.26
+    },
+    {
+      "time": "D29",
+      "signal": "Buy",
+      "momentum": 0.759,
+      "confidence": 97.69,
+      "volume_spike": 0.169
+    },
+    {
+      "time": "D30",
+      "signal": "Neutral",
+      "momentum": 0.539,
+      "confidence": 97.31,
+      "volume_spike": 0.225
+    }
+  ],
+  "best_entry": "D18",
+  "best_exit": "D12",
+  "timing_score": 0.7196
+}

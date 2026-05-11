@@ -1,0 +1,19 @@
+{
+  "ticker": "MSFT",
+  "horizon": "short-term",
+  "current_price": 424.62,
+  "signal": "Neutral",
+  "confidence": 96.67,
+  "expected_return": -0.95,
+  "recommendation_score": 0.0407,
+  "risk_level": "Medium",
+  "rating": "C+",
+  "features": {
+    "volatility_range": 23.2906,
+    "trend_strength": -0.066608,
+    "consistency": 0.1724
+  },
+  "risk_score": 0.5447,
+  "drawdown_risk": 33.91,
+  "volatility": 0.2558
+}

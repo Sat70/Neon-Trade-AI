@@ -1,0 +1,11 @@
+{
+  "ticker": "AAPL",
+  "horizon": "short-term",
+  "risk_score": 0.4024,
+  "risk_level": "Medium",
+  "volatility": 0.2073,
+  "drawdown_risk": 13.8,
+  "beta": 0.5138,
+  "prediction_uncertainty": 10.9631,
+  "price_stability": 0.7927
+}

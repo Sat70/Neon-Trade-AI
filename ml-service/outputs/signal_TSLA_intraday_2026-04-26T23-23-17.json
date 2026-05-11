@@ -1,0 +1,19 @@
+{
+  "ticker": "TSLA",
+  "horizon": "intraday",
+  "current_price": 376.16,
+  "signal": "Neutral",
+  "confidence": 99.17,
+  "expected_return": 0.0,
+  "recommendation_score": 0.1434,
+  "risk_level": "Low",
+  "rating": "C+",
+  "features": {
+    "volatility_range": 3.3413,
+    "trend_strength": 0.000163,
+    "consistency": 0.2857
+  },
+  "risk_score": 0.2086,
+  "drawdown_risk": 8.83,
+  "volatility": 0.0194
+}
